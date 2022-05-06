@@ -2,7 +2,7 @@ module AtmosphericModels
 
 using KiteUtils, Parameters
 
-export AtmosphericModel
+export AtmosphericModel, ProfileLaw, EXP, LOG, EXPLOG, FAST_EXP, FAST_LOG, FAST_EXPLOG
 export calc_rho, calc_wind_factor
 
 # # ALPHA      = 1.0/7.0

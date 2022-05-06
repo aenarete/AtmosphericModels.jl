@@ -22,7 +22,7 @@ calc_wind_factor(s::AM, height, ::Type{Val{6}})
 using AtmosphericModels
 am = AtmosphericModel()
 
-const profile_law=3
+const profile_law = Int(EXPLOG)
 height = 100.0
 wf = calc_wind_factor(am, height, Val{profile_law})
 ```

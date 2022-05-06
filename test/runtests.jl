@@ -6,12 +6,12 @@ KiteUtils.set_data_path("")
 am = AtmosphericModel()
 
 @testset "calc_wind_factor" begin
-    @test calc_wind_factor(am, 6.0, Val{1}) ≈ 1.0
-    @test calc_wind_factor(am, 6.0, Val{2}) ≈ 1.0
-    @test calc_wind_factor(am, 6.0, Val{3}) ≈ 1.0
-    @test abs(calc_wind_factor(am, 6.0, Val{4}) - 1.0) < 1.5e-5
-    @test abs(calc_wind_factor(am, 6.0, Val{5}) - 1.0) < 1.5e-5
-    @test abs(calc_wind_factor(am, 6.0, Val{6}) - 1.0) < 1.5e-5    
+    @test calc_wind_factor(am, 6.0, Val{Int(EXP)}) ≈ 1.0
+    @test calc_wind_factor(am, 6.0, Val{Int(LOG)}) ≈ 1.0
+    @test calc_wind_factor(am, 6.0, Val{Int(EXPLOG)}) ≈ 1.0
+    @test abs(calc_wind_factor(am, 6.0, Val{Int(FAST_EXP)}) - 1.0) < 1.5e-5
+    @test abs(calc_wind_factor(am, 6.0, Val{Int(FAST_LOG)}) - 1.0) < 1.5e-5
+    @test abs(calc_wind_factor(am, 6.0, Val{Int(FAST_EXPLOG)}) - 1.0) < 1.5e-5    
 end
 
 @testset "calc_rho" begin
