@@ -4,13 +4,15 @@ authors = ["Uwe Fechner <fechner@aenarete.eu> and contributors"]
 version = "0.1.0"
 
 [deps]
-BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
 KiteUtils = "90980105-b163-44e5-ba9f-8b1c83bb0533"
 Parameters = "d96e819e-fc66-5662-9728-84c9c7592b0a"
 TestEnv = "1e6cf692-eddd-4d53-88a5-2d735e33781b"
 
 [compat]
-julia = "1.6"
+julia = "1.6 1.7 1.8"
+KiteUtils = "^0.3.4"
+Parameters = "^0.12"
+TestEnv = "1"
 
 [extras]
 BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
