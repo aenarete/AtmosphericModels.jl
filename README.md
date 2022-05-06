@@ -16,6 +16,11 @@ calc_wind_factor(s::AM, height, ::Type{Val{4}})
 calc_wind_factor(s::AM, height, ::Type{Val{5}})
 calc_wind_factor(s::AM, height, ::Type{Val{6}})
 ```
+## Wind profile
+
+<p align="center"><img src="./doc/wind_profile.png" width="500" /></p>
+
+The EXPLOG profile law is the fitted linear combination of the exponentional and the log law.
 
 ## Usage
 ```julia
