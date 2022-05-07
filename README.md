@@ -65,7 +65,21 @@ am = AtmosphericModel()
 |FAST_LOG|6.6  |
 |FAST_EXPLOG|6.6|
 
-The FAST versions are an approximations with an error of less than <img src="https://render.githubusercontent.com/render/math?math=1.5 \cdot 10^{-5}"> and are correct only for the default values of h_ref, z0 and alpha.  
+The FAST versions are an approximations with an error of less than <img src="https://render.githubusercontent.com/render/math?math=1.5 \cdot 10^{-5}"> and are correct only for the default values of h_ref, z0 and alpha.
+
+## Air density
+```
+using AtmosphericModels, BenchmarkTools
+am = AtmosphericModel()
+@benchmark calc_rho(am, height) setup=(height=Float64((6.0+rand()*500.0)))
+```
+This gives 4.85 ns as result. Plot the air density:
+```
+heights = 6:1000
+rhos = [calc_rho(am, height) for height in heights]
+plot(heights, rhos, legend=false, xlabel="height [m]", ylabel="air density [kg/m³]")
+```
+<p align="center"><img src="./doc/airdensity.png" width="500" /></p>
 
 ## Further reading
 These models are described in detail in [Dynamic Model of a Pumping Kite Power System](http://arxiv.org/abs/1406.6218).
