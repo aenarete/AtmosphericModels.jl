@@ -58,9 +58,9 @@ am = AtmosphericModel()
 ```
 |Profile law|time [ns]|
 | ---    |:---:|
-|EXP     |14   |
+|EXP     |12   |
 |LOG     |16   |
-|EXPLOG  |31   |
+|EXPLOG  |33   |
 |FAST_EXP|6.6  |
 |FAST_LOG|6.6  |
 |FAST_EXPLOG|6.6|
