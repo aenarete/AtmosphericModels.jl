@@ -34,6 +34,17 @@ wf = calc_wind_factor(am, height, Val{profile_law})
 The result is the factor with which the ground wind speed needs to be mulitplied
 to get the wind speed at the given height.
 
+## Plot a wind profile
+```julia
+using AtmosphericModels, Plots
+am = AtmosphericModel()
+
+heights = 6:1000
+wf = [calc_wind_factor(am, height, Val{Int(EXPLOG)}) for height in heights]
+
+plot(heights, wf, legend=false, xlabel="height [m]", ylabel="wind factor")
+```
+
 ## See also
 - [Research Fechner](https://research.tudelft.nl/en/publications/?search=Uwe+Fechner&pageSize=50&ordering=rating&descending=true)
 - The application [KiteViewer](https://github.com/ufechner7/KiteViewer)
