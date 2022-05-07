@@ -12,6 +12,7 @@ AtmosphericModel
 
 ## Exported functions
 ```julia
+clear(s::AM)
 calc_rho(s::AM, height)
 calc_wind_factor(s::AM, height, ::Type{Val{1}})
 calc_wind_factor(s::AM, height, ::Type{Val{2}})
