@@ -1,6 +1,6 @@
 module AtmosphericModels
 
-using KiteUtils, Parameters
+using KiteUtils, Parameters, HypergeometricFunctions
 
 export AtmosphericModel, ProfileLaw, EXP, LOG, EXPLOG, FAST_EXP, FAST_LOG, FAST_EXPLOG
 export clear, calc_rho, calc_wind_factor
@@ -92,5 +92,6 @@ function calc_wind_factor(s::AM, height, ::Type{Val{6}})
         evalpoly(1/height, (1.0, 1735.2333827029918, 279373.0012683715))
 end
 
+include("windfield.jl")
 
 end

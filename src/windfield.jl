@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 This module provides methods to create a turbulent wind field and to read 
 the actual wind velocity vector as function of the 3d position
@@ -14,23 +13,25 @@ The code is based on the following papers:
    Engineering Mechanics 13(4), pp. 269-282.
 """
 
-# def pfq(z):
-#   return np.real(hyp2f1(1./3., 17./6., 4./3., z))
+function pfq(z)
+    _₂F₁(1. /3 , 17. /6, 4. /3, z)
+end
 
-# def calcSigma1(v_wind_gnd):
-#     # TODO: What is the meaning of this value ???
-#     v_height = calcWindHeight(v_wind_gnd, HUB_HEIGHT)
-#     sigma1 = I_REF * (0.75 * v_height + 5.6)
-#     return sigma1
+function calc_sigma1(am, v_wind_gnd)
+    v_height = v_wind_gnd * calc_wind_factor(am, am.set.avg_height, Val{Int(EXP)})
+    am.set.i_ref * (0.75 * v_height + 5.6)
+end
 
-# def nextpow2(i):
-#     """
-#     Find 2^n that is equal to or greater than i.
-#     """
-#     n = 1
-#     while n < i:
-#         n *= 2
-#     return n
+"""
+Find 2^n that is equal to or greater than i.
+"""
+function nextpow2(i)
+    n = 1
+    while n < i
+        n *= 2
+    end
+    n
+end
 
 # def calcFullName(v_wind_gnd, basename='windfield_4050_500', rel_sigma = 1.0):
 #     path = HOME+'/00PythonSoftware/KiteSim/Environment/'
