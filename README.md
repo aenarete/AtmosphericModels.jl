@@ -68,13 +68,13 @@ am = AtmosphericModel()
 The FAST versions are an approximations with an error of less than <img src="https://render.githubusercontent.com/render/math?math=1.5 \cdot 10^{-5}"> and are correct only for the default values of h_ref, z0 and alpha.
 
 ## Air density
-```
+```julia
 using AtmosphericModels, BenchmarkTools
 am = AtmosphericModel()
 @benchmark calc_rho(am, height) setup=(height=Float64((6.0+rand()*500.0)))
 ```
 This gives 4.85 ns as result. Plot the air density:
-```
+```julia
 heights = 6:1000
 rhos = [calc_rho(am, height) for height in heights]
 plot(heights, rhos, legend=false, xlabel="height [m]", ylabel="air density [kg/m³]")

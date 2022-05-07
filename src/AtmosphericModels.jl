@@ -3,7 +3,7 @@ module AtmosphericModels
 using KiteUtils, Parameters
 
 export AtmosphericModel, ProfileLaw, EXP, LOG, EXPLOG, FAST_EXP, FAST_LOG, FAST_EXPLOG
-export calc_rho, calc_wind_factor
+export clear, calc_rho, calc_wind_factor
 
 # # ALPHA      = 1.0/7.0
 # ALPHA = 0.234
@@ -23,6 +23,7 @@ export calc_rho, calc_wind_factor
 # GRID_STEP    = 2.0   # grid resolution in x and y direction
 # np.random.seed(1234) # do this only if you want to have reproducable wind fields
 
+const ABS_ZERO = -273.15
 """
     mutable struct AtmosphericModel
 
@@ -31,9 +32,14 @@ Stuct that is storing the settings and the state of the atmosphere.
 @with_kw mutable struct AtmosphericModel
     set::Settings = se()
     turbulence::Float64 = 0.0
+    rho_zero_temp::Float64 = (15.0 - ABS_ZERO) / (se().temp_ref - ABS_ZERO) * se().rho_0
 end
 
 const AM = AtmosphericModel
+
+function clear(s::AM)
+     s.rho_zero_temp       = (15.0 - ABS_ZERO) / (s.set.temp_ref - ABS_ZERO) * s.set.rho_0
+end
 
 @inline function fastexp(x)
   y = 1 + x / 1024
@@ -43,7 +49,7 @@ const AM = AtmosphericModel
 end
 
 # Calculate the air densisity as function of height
-calc_rho(s::AM, height) = s.set.rho_0 * fastexp(-(height+s.set.height_gnd) / 8550.0)
+calc_rho(s::AM, height) = s.rho_zero_temp * fastexp(-(height+s.set.height_gnd) / 8550.0)
 
 """
     @enum ProfileLaw EXP=1 LOG=2 EXPLOG=3
