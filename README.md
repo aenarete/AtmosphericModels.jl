@@ -45,6 +45,24 @@ wf = [calc_wind_factor(am, height, Val{Int(EXPLOG)}) for height in heights]
 plot(heights, wf, legend=false, xlabel="height [m]", ylabel="wind factor")
 ```
 
+## Benchmark
+```julia
+using AtmosphericModels, BenchmarkTools
+
+am = AtmosphericModel()
+@benchmark calc_wind_factor(am, height, Val{Int(EXPLOG)}) setup=(height=Float64((6.0+rand()*500.0)))
+```
+|Profile law|time [ns]|
+| ---    |:---:|
+|EXP     |17   |
+|LOG     |16   |
+|EXPLOG  |33   |
+|FAST_EXP|6.6  |
+|FAST_LOG|6.6  |
+|FAST_EXPLOG|6.6|
+
+The FAST versions are an approximations with an error of less than $1.5 \cdot 10^{-5}$ and are correct only for the default values of h_ref, z0 and alpha.  
+
 ## See also
 - [Research Fechner](https://research.tudelft.nl/en/publications/?search=Uwe+Fechner&pageSize=50&ordering=rating&descending=true)
 - The application [KiteViewer](https://github.com/ufechner7/KiteViewer)
