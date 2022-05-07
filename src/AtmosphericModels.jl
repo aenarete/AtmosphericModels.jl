@@ -54,7 +54,7 @@ Enumeration to describe the wind profile low that is used.
 
 # Calculate the wind speed at a given height and reference height.
 function calc_wind_factor(s::AM, height, ::Type{Val{1}})
-    (height / s.set.h_ref)^s.set.alpha
+    fastexp(s.set.alpha * log(height/s.set.h_ref))
 end 
 
 function calc_wind_factor(s::AM, height, ::Type{Val{2}})
@@ -64,7 +64,7 @@ end
 function calc_wind_factor(s::AM, height, ::Type{Val{3}})
     K = 1.0
     log1 = log(height / s.set.z0) / log(s.set.h_ref / s.set.z0)
-    exp1 = exp(s.set.alpha * log(height/s.set.h_ref))
+    exp1 = fastexp(s.set.alpha * log(height/s.set.h_ref))
     log1 +  K * (log1 - exp1)
 end
 
