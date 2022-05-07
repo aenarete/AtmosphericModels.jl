@@ -43,7 +43,7 @@ const AM = AtmosphericModel
 end
 
 # Calculate the air densisity as function of height
-calc_rho(s::AM, height) = s.set.rho_0 * fastexp(-height / 8550.0)
+calc_rho(s::AM, height) = s.set.rho_0 * fastexp(-(height+s.set.height_gnd) / 8550.0)
 
 """
     @enum ProfileLaw EXP=1 LOG=2 EXPLOG=3
