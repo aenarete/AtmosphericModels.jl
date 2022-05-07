@@ -63,6 +63,9 @@ am = AtmosphericModel()
 
 The FAST versions are an approximations with an error of less than <img src="https://render.githubusercontent.com/render/math?math=1.5 \cdot 10^{-5}"> and are correct only for the default values of h_ref, z0 and alpha.  
 
+## Further reading
+These models are described in detail in [Dynamic Model of a Pumping Kite Power System](http://arxiv.org/abs/1406.6218).
+
 ## See also
 - [Research Fechner](https://research.tudelft.nl/en/publications/?search=Uwe+Fechner&pageSize=50&ordering=rating&descending=true)
 - The application [KiteViewer](https://github.com/ufechner7/KiteViewer)
