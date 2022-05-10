@@ -14,12 +14,7 @@ AtmosphericModel
 ```julia
 clear(s::AM)
 calc_rho(s::AM, height)
-calc_wind_factor(s::AM, height, ::Type{Val{1}})
-calc_wind_factor(s::AM, height, ::Type{Val{2}})
-calc_wind_factor(s::AM, height, ::Type{Val{3}})
-calc_wind_factor(s::AM, height, ::Type{Val{4}})
-calc_wind_factor(s::AM, height, ::Type{Val{5}})
-calc_wind_factor(s::AM, height, ::Type{Val{6}})
+calc_wind_factor(am::AM, height, profile_law::Int64=am.set.profile_law)
 ```
 ## Wind profile
 
@@ -34,7 +29,7 @@ am = AtmosphericModel()
 
 const profile_law = Int(EXPLOG)
 height = 100.0
-wf = calc_wind_factor(am, height, Val{profile_law})
+wf = calc_wind_factor(am, height, profile_law)
 ```
 The result is the factor with which the ground wind speed needs to be mulitplied
 to get the wind speed at the given height.
@@ -45,7 +40,7 @@ using AtmosphericModels, Plots
 am = AtmosphericModel()
 
 heights = 6:1000
-wf = [calc_wind_factor(am, height, Val{Int(EXPLOG)}) for height in heights]
+wf = [calc_wind_factor(am, height, Int(EXPLOG)) for height in heights]
 
 plot(heights, wf, legend=false, xlabel="height [m]", ylabel="wind factor")
 ```
@@ -55,7 +50,7 @@ plot(heights, wf, legend=false, xlabel="height [m]", ylabel="wind factor")
 using AtmosphericModels, BenchmarkTools
 
 am = AtmosphericModel()
-@benchmark calc_wind_factor(am, height, Val{Int(EXPLOG)}) setup=(height=Float64((6.0+rand()*500.0)))
+@benchmark calc_wind_factor(am, height, Int(EXPLOG)) setup=(height=Float64((6.0+rand()*500.0)))
 ```
 |Profile law|time [ns]|
 | ---    |:---:|
