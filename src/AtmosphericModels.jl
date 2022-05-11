@@ -5,24 +5,6 @@ using KiteUtils, Parameters, HypergeometricFunctions
 export AtmosphericModel, ProfileLaw, EXP, LOG, EXPLOG, FAST_EXP, FAST_LOG, FAST_EXPLOG
 export clear, calc_rho, calc_wind_factor
 
-# # ALPHA      = 1.0/7.0
-# ALPHA = 0.234
-# REF_HEIGHT =  6.0
-# HUB_HEIGHT= 200.0    # average height during reel-out phase
-# TEST = 2
-# V_WIND_GNDS = [3.483, 5.324, 8.163]
-# REL_TURB = [0.342, 0.465, 0.583]
-# # V_WIND_GND = 5.2  # at ref_height in m/s
-# # V_WIND_GND = 3.483 # converted from 4.26 m/s at 10 m using alpha=0.234
-# V_WIND_GND = V_WIND_GNDS[TEST]
-# REL_SIGMA  =  1.0    # turbulence relative to the IEC model
-# I_REF = 0.14         # is the expected value of the turbulence intensity at 15 m/s.
-# V_REF = 42.5         # five times the average wind speed in m/s at hub height over the full year
-#                      # cabau: 8.5863 m/s * 5.0 = 42.7 m/s
-# HEIGHT_STEP  = 2.0   # use a grid with 2m resolution in z direction
-# GRID_STEP    = 2.0   # grid resolution in x and y direction
-# np.random.seed(1234) # do this only if you want to have reproducable wind fields
-
 const ABS_ZERO = -273.15
 """
     mutable struct AtmosphericModel
