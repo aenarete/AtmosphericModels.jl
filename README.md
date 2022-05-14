@@ -3,6 +3,13 @@
 [![Build Status](https://github.com/aenarete/AtmosphericModels.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/aenarete/AtmosphericModels.jl/actions/workflows/CI.yml?query=branch%3Amain)
 [![Coverage](https://codecov.io/gh/aenarete/AtmosphericModels.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/aenarete/AtmosphericModels.jl)
 
+## Installation
+Download [Julia 1.6](http://www.julialang.org) or later, if you haven't already. You can add AtmosphericModels from  Julia's package manager, by typing 
+```julia
+using Pkg
+pkg"add AtmosphericModels"
+``` 
+at the Julia prompt.
 
 ## Exported types
 ```julia
