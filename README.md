@@ -84,6 +84,24 @@ plot(heights, rhos, legend=false, xlabel="height [m]", ylabel="air density [kg/m
 ```
 <p align="center"><img src="./doc/airdensity.png" width="500" /></p>
 
+## Running the test scripts
+First, add TestEnv to your global environment.
+```julia
+julia
+using Pkg
+Pkg.add("TestEnv")
+exit()
+```
+Then you can run Julia using this project and run the tests:
+```julia
+julia --project
+using TestEnv
+TestEnv.activate()
+include("test/bench.jl")
+include("calc_approximations.jl")
+include("runtests.jl")
+```
+
 ## Further reading
 These models are described in detail in [Dynamic Model of a Pumping Kite Power System](http://arxiv.org/abs/1406.6218).
 
