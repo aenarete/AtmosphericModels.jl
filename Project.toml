@@ -1,17 +1,15 @@
 name = "AtmosphericModels"
 uuid = "c59cac55-771d-4f45-b14d-1c681463a295"
 authors = ["Uwe Fechner <fechner@aenarete.eu> and contributors"]
-version = "0.1.4"
+version = "0.1.5"
 
 [deps]
 HypergeometricFunctions = "34004b35-14d8-5ef3-9330-4cdb6864b03a"
 KiteUtils = "90980105-b163-44e5-ba9f-8b1c83bb0533"
-Parameters = "d96e819e-fc66-5662-9728-84c9c7592b0a"
 
 [compat]
 HypergeometricFunctions = "0.3"
-KiteUtils = "0.4.0"
-Parameters = "^0.12"
+KiteUtils = "0.4"
 julia = "1.6, 1.7, 1.8"
 
 [extras]
