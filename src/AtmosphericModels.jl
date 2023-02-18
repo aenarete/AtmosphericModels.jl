@@ -1,6 +1,6 @@
 module AtmosphericModels
 
-using KiteUtils, Parameters, HypergeometricFunctions
+using KiteUtils, HypergeometricFunctions
 
 export AtmosphericModel, ProfileLaw, EXP, LOG, EXPLOG, FAST_EXP, FAST_LOG, FAST_EXPLOG
 export clear, calc_rho, calc_wind_factor
@@ -11,7 +11,7 @@ const ABS_ZERO = -273.15
 
 Stuct that is storing the settings and the state of the atmosphere. 
 """
-@with_kw mutable struct AtmosphericModel
+Base.@kwdef mutable struct AtmosphericModel
     set::Settings = se()
     turbulence::Float64 = 0.0
     rho_zero_temp::Float64 = (15.0 - ABS_ZERO) / (se().temp_ref - ABS_ZERO) * se().rho_0
