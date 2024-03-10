@@ -1,7 +1,7 @@
 name = "AtmosphericModels"
 uuid = "c59cac55-771d-4f45-b14d-1c681463a295"
 authors = ["Uwe Fechner <fechner@aenarete.eu> and contributors"]
-version = "0.1.5"
+version = "0.2.0"
 
 [deps]
 HypergeometricFunctions = "34004b35-14d8-5ef3-9330-4cdb6864b03a"
