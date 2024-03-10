@@ -4,7 +4,7 @@
 [![Coverage](https://codecov.io/gh/aenarete/AtmosphericModels.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/aenarete/AtmosphericModels.jl)
 
 ## Installation
-Download [Julia 1.6](http://www.julialang.org) or later, if you haven't already. You can add AtmosphericModels from  Julia's package manager, by typing 
+Download [Julia 1.9](http://www.julialang.org) or later, if you haven't already. You can add AtmosphericModels from  Julia's package manager, by typing 
 ```julia
 using Pkg
 pkg"add AtmosphericModels"
@@ -38,7 +38,7 @@ const profile_law = Int(EXPLOG)
 height = 100.0
 wf = calc_wind_factor(am, height, profile_law)
 ```
-The result is the factor with which the ground wind speed needs to be mulitplied
+The result is the factor with which the ground wind speed needs to be multiplied
 to get the wind speed at the given height.
 
 ## Plot a wind profile
