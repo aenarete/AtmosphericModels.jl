@@ -68,7 +68,7 @@ am = AtmosphericModel()
 |FAST_LOG|6.6  |
 |FAST_EXPLOG|6.6|
 
-The FAST versions are an approximations with an error of less than <img src="https://render.githubusercontent.com/render/math?math=1.5 \cdot 10^{-5}"> and are correct only for the default values of h_ref, z0 and alpha.
+The FAST versions are an approximations with an error of less than $1.5 \cdot 10^{-5}$ and are correct only for the default values of h_ref, z0 and alpha.
 
 ## Air density
 ```julia
