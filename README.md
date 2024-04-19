@@ -27,7 +27,7 @@ calc_wind_factor(am::AM, height, profile_law::Int64=am.set.profile_law)
 
 <p align="center"><img src="./doc/wind_profile.png" width="500" /></p>
 
-The EXPLOG profile law is the fitted linear combination of the exponentional and the log law.
+The EXPLOG profile law is the fitted linear combination of the exponential and the log law.
 
 ## Usage
 ```julia
@@ -50,6 +50,17 @@ heights = 6:1000
 wf = [calc_wind_factor(am, height, Int(EXPLOG)) for height in heights]
 
 plot(heights, wf, legend=false, xlabel="height [m]", ylabel="wind factor")
+```
+
+```julia
+using AtmosphericModels, ControlPlots
+am = AtmosphericModel()
+AtmosphericModels.se().alpha = 0.234  # set the exponent of the power law
+
+heights = 6:200
+wf = [calc_wind_factor(am, height, Int(EXP)) for height in heights]
+
+plot(heights, wf, xlabel="height [m]", ylabel="wind factor")
 ```
 
 ## Benchmark
