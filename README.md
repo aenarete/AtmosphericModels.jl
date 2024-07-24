@@ -4,7 +4,7 @@
 [![Coverage](https://codecov.io/gh/aenarete/AtmosphericModels.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/aenarete/AtmosphericModels.jl)
 
 ## Installation
-Download [Julia 1.9](http://www.julialang.org) or later, if you haven't already. You can add AtmosphericModels from  Julia's package manager, by typing 
+Install [Julia 1.10](http://www.julialang.org) or later, if you haven't already. You can add AtmosphericModels from  Julia's package manager, by typing 
 ```julia
 using Pkg
 pkg"add AtmosphericModels"
