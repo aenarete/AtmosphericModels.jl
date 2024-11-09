@@ -1,1 +1,8 @@
+#!/bin/bash
+
+if [[ $(basename $(pwd)) == "bin" ]]; then
+    cd ..
+fi
+export JULIA_PKG_SERVER_REGISTRY_PREFERANCE=eager
+
 LANG=en_US julia --project
