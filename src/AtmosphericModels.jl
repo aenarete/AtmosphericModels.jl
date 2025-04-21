@@ -38,8 +38,39 @@ calc_rho(s::AM, height) = s.rho_zero_temp * fastexp(-(height+s.set.height_gnd) /
     @enum ProfileLaw EXP=1 LOG=2 EXPLOG=3
 
 Enumeration to describe the wind profile low that is used.
-"""
-@enum ProfileLaw EXP=1 LOG=2 EXPLOG=3 FAST_EXP=4 FAST_LOG=5 FAST_EXPLOG=6
+""" ProfileLaw
+
+@enum ProfileLaw begin 
+    EXP=1 
+    LOG=2 
+    EXPLOG=3 
+    FAST_EXP=4 
+    FAST_LOG=5 
+    FAST_EXPLOG=6
+end
+
+@doc """
+    EXP::ProfileLaw
+
+Exponential wind profile.
+
+See also [`ProfileLaw`](@ref).
+""" EXP
+@doc """
+    LOG::ProfileLaw
+
+Logarithmic wind profile.
+
+See also [`ProfileLaw`](@ref).
+""" LOG
+@doc """
+    EXPLOG::ProfileLaw
+
+A linear combination of exponential and logarithmic wind profile to match a specific site.
+
+See also [`ProfileLaw`](@ref).
+""" EXPLOG
+
 
 # Calculate the wind speed at a given height and reference height.
 @inline function calc_wind_factor1(s::AM, height);  exp(s.set.alpha * log(height/s.set.h_ref)); end
